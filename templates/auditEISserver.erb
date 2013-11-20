@@ -1,0 +1,67 @@
+#!/usr/bin/perl
+#
+# Collector script by Lei Tu
+#
+
+#This will import Analystic external PM
+
+use lib "<%= @libpath_real %>";
+
+
+use warnings;
+use strict;
+use URI;
+use LWP;
+use Scalar::Util qw(looks_like_number);
+
+
+if (!defined $ARGV[0]) {
+        die "You have to provide the hub site to run performance test against (such as CNSH/SEKI/SELI/SELN/SEKA/CAMO/USSJ/DEAC) as argument.\n";
+}
+
+
+   my $hostname = "<%= @fqdn %>";
+   chomp (my $date = `date +%s 2>&1`);
+   $date = $date * 1000;
+   my $site = $ARGV[0];
+   my $architecture = "<%= @architecture %>";
+   my $isvirtual = "<%= @is_virtual %>";
+   my $virtual = "<%= @virtual %>";
+   <% if @virtual == 'physical' %>
+   my $manufacturer = "<%= @manufacturer %>";
+   my $productname  = "<%= @productname  %>";
+   <% end %>
+   my $kernel = "<%= @kernel %>";
+   my $os = "<%= @osfamily %>";
+   my $osversion = "<%= @operatingsystemrelease %>";
+   my $memory = "<%= @memorytotal %>";
+   my $process = "<%= @processorcount %>";
+
+
+   my $browser = LWP::UserAgent->new;
+
+   my $url = URI->new( '<%= @url_real %>' );
+
+# makes an object representing the URL
+
+        $url->query_form(  # And here the form data pairs:
+                'object'    => 'auditEISserver',
+                'Hostname' => $hostname,
+                'longdate' => $date,
+                'Architecture' => $architecture,
+                'Site' => $ARGV[0],
+                'Isvirtual' => $isvirtual,
+                'Virtual' => $virtual,
+                'Kernel' => $kernel,
+                'Os' => $os,
+                'Osversion' => $osversion,
+                'Memory' => $memory,
+                'Process' => $process,
+                <% if @virtual == 'physical' %>
+                 'Manufacturer' => $manufacturer,
+                 'Productname' => $productname,
+                <% end %>
+
+        );
+
+  my $response = $browser->get($url);

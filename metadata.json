@@ -1,0 +1,18 @@
+{
+  "name": "puppet-module-auditserver",
+  "version": "0.1.0",
+  "summary": "",
+  "author": "Lei Tu",
+  "description": "This audit server",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": "4.1.0"
+    }
+  ],
+  "types": [],
+  "checksums": {},
+  "source": "",
+  "project_page": "",
+  "license": ""
+}
