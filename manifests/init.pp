@@ -19,7 +19,10 @@ class auditserver (
   $url        = 'USE_DEFAULTS',
   $site       = 'USE_DEFAULTS',
   $file_ensure  = 'present',
-  $command_running = '6',
+  $cron_month = '11',
+  $cron_day  = '22',
+  $cron_hour = '12',
+  $cron_min  = '0',
 ) {
 
 
@@ -59,7 +62,10 @@ class auditserver (
   cron { 'auditserver':
     command => "${file_name} ${site}",
     user    => $file_owner,
-    hour    => $command_running,
+    month   => $cron_month,
+    monthday => $cron_day,
+    hour    => $cron_hour,
+    minute  => $cron_min,
   }
 
 }

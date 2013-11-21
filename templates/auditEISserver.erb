@@ -21,8 +21,13 @@ if (!defined $ARGV[0]) {
 
 
    my $hostname = "<%= @fqdn %>";
-   chomp (my $date = `date +%s 2>&1`);
+   <% if @kernel == 'SunOS' %>
+     chomp (my $date = `perl -e 'print time' 2>&1`);
+   <% else %>
+     chomp (my $date = `date +%s 2>&1`);
+   <% end %>
    $date = $date * 1000;
+   my $yearmonth = `date +%Y-%m  2>&1`;
    my $site = $ARGV[0];
    my $architecture = "<%= @architecture %>";
    my $isvirtual = "<%= @is_virtual %>";
@@ -48,6 +53,7 @@ if (!defined $ARGV[0]) {
                 'object'    => 'auditEISserver',
                 'Hostname' => $hostname,
                 'longdate' => $date,
+                'YearMonth' => $yearmonth,
                 'Architecture' => $architecture,
                 'Site' => $ARGV[0],
                 'Isvirtual' => $isvirtual,
