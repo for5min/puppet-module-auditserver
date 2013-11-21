@@ -25,9 +25,7 @@ describe 'auditserver' do
         'mode'    => '755',
         'content' => "template('auditserver/auditEISserver.erb')"
       })
-    }
-
-  end
+    } end
 
 
     it do {
@@ -39,7 +37,6 @@ describe 'auditserver' do
         'hour'    => '12',
         'minute'  => '0',
       })
-    }
-  end
+    } end
   end
 end
