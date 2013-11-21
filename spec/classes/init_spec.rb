@@ -12,7 +12,7 @@ describe 'auditserver' do
         :osfamily   => 'Solaris',
         :osversion  => '5.10',
         :memorytotal => '4 G',
-        :processorcount =¡· '4',
+        :processorcount => '4',
         }
     end
 
@@ -40,6 +40,5 @@ describe 'auditserver' do
         minute  => '0',
       })
     }
-
-
+  end
 end
