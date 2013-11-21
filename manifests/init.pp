@@ -30,12 +30,12 @@ class auditserver (
     cnsh : {
             $default_url = 'http://ecnshwdp2001.rnd.ericsson.se:8099/service-dispatch/object'
             $default_libpath = '/proj/cnshrepo/lib/linux'
-     }
+  }
     seki : {
             $default_url = 'http://esekiwdp365.rnd.ericsson.se:8099/service-dispatch/object'
             $default_libpath = '/proj/BIIT360/cron/lib/linux'
-     }
-    default: { fail("the site is not in scope") }
+  }
+    default: { fail('the site is not in scope') }
   }
 
   if $libpath == 'USE_DEFAULTS' {
@@ -60,12 +60,12 @@ class auditserver (
   }
 
   cron { 'auditserver':
-    command => "${file_name} ${site}",
-    user    => $file_owner,
-    month   => $cron_month,
+    command  => "${file_name} ${site}",
+    user     => $file_owner,
+    month    => $cron_month,
     monthday => $cron_day,
-    hour    => $cron_hour,
-    minute  => $cron_min,
+    hour     => $cron_hour,
+    minute   => $cron_min,
   }
 
 
