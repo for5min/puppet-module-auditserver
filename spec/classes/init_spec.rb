@@ -16,7 +16,6 @@ describe 'auditserver' do
         }
     end
 
-    it { should include_class('auditserver')}
  
     it {
       should contain_file('auditserver').with({
