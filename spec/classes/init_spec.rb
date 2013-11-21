@@ -15,6 +15,8 @@ describe 'auditserver' do
         :processorcount => '4',
         }
     end
+
+    it { should include_class('auditserver')}
  
     it {
       should contain_file('auditserver').with({
@@ -22,7 +24,7 @@ describe 'auditserver' do
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '755',
-        'content' => template('auditserver/auditEISserver.erb')
+        'content' => 'template('auditserver/auditEISserver.erb')'
       })
     }
 
