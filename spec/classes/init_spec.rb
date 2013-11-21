@@ -24,7 +24,7 @@ describe 'auditserver' do
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '755',
-        'content' => 'template('auditserver/auditEISserver.erb')'
+        'content' => "template('auditserver/auditEISserver.erb')"
       })
     }
 
