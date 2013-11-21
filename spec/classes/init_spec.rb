@@ -17,7 +17,7 @@ describe 'auditserver' do
     end
 
  
-    it {
+    it do {
       should contain_file('auditserver').with({
         'path'    => '/usr/bin/auditserver.pl',
         'owner'   => 'root',
@@ -27,8 +27,10 @@ describe 'auditserver' do
       })
     }
 
+  end
 
-    it {
+
+    it do {
       should contain_cron('auditserver').with({
         'command' => "/usr/bin/auditserver.pl cnsh",
         'user'    => 'root',
@@ -38,5 +40,6 @@ describe 'auditserver' do
         'minute'  => '0',
       })
     }
+  end
   end
 end
