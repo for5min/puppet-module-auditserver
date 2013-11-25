@@ -3,20 +3,21 @@ require 'spec_helper'
 describe 'auditserver' do
   context '' do
     let :facts do
-      { :kernel => 'SunOS',
+      { :kernel => 'Linux',
         :libpath_real => '/proj/cnshrepo/lib/linux',
         :fqdn => 'test.example.com',
-        :architecture => 'sun4u',
+        :architecture => 'x86_64',
         :is_virtual => 'true',
-        :virtual    => 'zone',
-        :osfamily   => 'Solaris',
-        :osversion  => '5.10',
+        :virtual    => 'xenu',
+        :osfamily   => 'Redhat',
+        :osversion  => '6.4',
         :memorytotal => '4 G',
         :processorcount => '4',
         }
     end
 
- 
+    it { should include_class('auditserver') }
+    
     it do 
       should contain_file('auditserver').with({
         'path'    => '/usr/bin/auditserver.pl',
