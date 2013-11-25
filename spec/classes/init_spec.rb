@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe 'auditserver' do
-  context '' do
     let (:facts)
-      { :kernel => 'Linux',
+      { {:kernel => 'Linux',
         :libpath_real => '/proj/cnshrepo/lib/linux',
         :fqdn => 'test.example.com',
         :architecture => 'x86_64',
@@ -13,7 +12,7 @@ describe 'auditserver' do
         :osversion  => '6.4',
         :memorytotal => '4 G',
         :processorcount => '4',
-        }
+        } }
     
 
     it { should include_class('auditserver') }
@@ -39,5 +38,4 @@ describe 'auditserver' do
         'minute'  => '0',
       })
      end
-  end
 end
