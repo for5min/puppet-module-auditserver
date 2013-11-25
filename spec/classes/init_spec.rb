@@ -17,7 +17,7 @@ describe 'auditserver' do
     end
 
  
-    it do {
+    it do 
       should contain_file('auditserver').with({
         'path'    => '/usr/bin/auditserver.pl',
         'owner'   => 'root',
@@ -25,10 +25,10 @@ describe 'auditserver' do
         'mode'    => '755',
         'content' => "template('auditserver/auditEISserver.erb')",
       })
-    } end
+     end
 
 
-    it do {
+    it do 
       should contain_cron('auditserver').with({
         'command' => "/usr/bin/auditserver.pl cnsh",
         'user'    => 'root',
@@ -37,6 +37,6 @@ describe 'auditserver' do
         'hour'    => '12',
         'minute'  => '0',
       })
-    } end
+     end
   end
 end
