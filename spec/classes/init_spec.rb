@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe 'auditserver' do
     let (:facts)
-      { {:kernel => 'Linux',
-        :libpath_real => '/proj/cnshrepo/lib/linux',
+      {{:kernel => 'Linux',
         :fqdn => 'test.example.com',
         :architecture => 'x86_64',
         :is_virtual => 'true',
@@ -12,7 +11,9 @@ describe 'auditserver' do
         :osversion  => '6.4',
         :memorytotal => '4 G',
         :processorcount => '4'
-        } }
+        }}
+    let (:params)
+      {{ :libpath_real => '/proj/cnshrepo/lib/linux' }}
     
 
     it { should include_class('auditserver') }
