@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'auditserver' do
+    context 'auditserver' do
     let ( :params ) { { :libpath_real => '/proj/cnshrepo/lib/linux' } }
     let ( :facts ) do
       { :kernel => 'Linux',
@@ -40,4 +41,5 @@ describe 'auditserver' do
         :minute   => '0',
       })
     }
+  end
 end
