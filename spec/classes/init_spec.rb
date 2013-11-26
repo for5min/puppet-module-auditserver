@@ -38,5 +38,6 @@ describe 'auditserver' do
         'monthday' => '22',
         'hour'    => '12',
         'minute'  => '0',
-      )
+      })
+    }
 end
