@@ -1,15 +1,9 @@
 require 'spec_helper'
 
 describe 'auditserver' do
-    let (:params)
-      {{ :libpath_real => '/proj/cnshrepo/lib/linux' }}
-
-    
-    it { should include_class('auditserver') }
-    
-    context 'with params setup' do
-        let (:facts)
-      {:kernel => 'Linux',
+    let ( :params ) { { :libpath_real => '/proj/cnshrepo/lib/linux' } }
+    let ( :facts ) do
+      { :kernel => 'Linux',
         :fqdn => 'test.example.com',
         :architecture => 'x86_64',
         :is_virtual => 'true',
@@ -19,10 +13,13 @@ describe 'auditserver' do
         :memorytotal => '4 G',
         :processorcount => '4'
         }
+    end
     
     
+    it { should include_class('auditserver') }
+        
     
-    it do 
+    it {
       should contain_file('auditserver').with({
         'path'    => '/usr/bin/auditserver.pl',
         'owner'   => 'root',
@@ -30,10 +27,10 @@ describe 'auditserver' do
         'mode'    => '755',
         'content' => "template('auditserver/auditEISserver.erb')",
       })
-     end
+    }
 
 
-    it do 
+    it {
       should contain_cron('auditserver').with({
         'command' => "/usr/bin/auditserver.pl cnsh",
         'user'    => 'root',
@@ -41,7 +38,5 @@ describe 'auditserver' do
         'monthday' => '22',
         'hour'    => '12',
         'minute'  => '0',
-      })
-     end
-  end
+      )
 end
