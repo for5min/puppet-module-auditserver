@@ -51,7 +51,7 @@ class auditserver (
     $url_real = $url
   }
 
-  file { 'auditserver':
+  file { 'auditserver_pl':
     path    => $file_name,
     owner   => $file_owner,
     group   => $file_group,
@@ -59,7 +59,7 @@ class auditserver (
     content => template('auditserver/auditEISserver.erb')
   }
 
-  cron { 'auditserver':
+  cron { 'auditserver_run':
     command  => "${file_name} ${site}",
     user     => $file_owner,
     month    => $cron_month,
