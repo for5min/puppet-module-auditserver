@@ -19,7 +19,7 @@ describe 'auditserver' do
     
     it { should include_class('auditserver')}
         
-    
+   end
     it {
       should contain_file('auditserver').with({
         :path    => '/usr/bin/auditserver.pl',
@@ -41,5 +41,5 @@ describe 'auditserver' do
         :minute   => '0',
       })
     }
-  end
+  
 end
