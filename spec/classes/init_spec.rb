@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe 'auditserver' do
   context 'set params and facts' do
-    let (:params)
-      {{ :file_name  => '/usr/bin/auditserver.pl', :site       => 'cnsh' }}
+    let (:params) {{ :site  => 'cnsh' }}
     
     it { should include_class('auditserver') }
     
