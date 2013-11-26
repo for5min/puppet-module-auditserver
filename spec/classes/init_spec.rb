@@ -4,8 +4,6 @@ describe 'auditserver' do
   context 'set params and facts' do
     
     
-    it { should include_class('auditserver')}
-        
     it {
       should contain_file('auditserver').with({
         :path    => '/usr/bin/auditserver.pl',
@@ -27,6 +25,7 @@ describe 'auditserver' do
         :minute   => '0',
       })
     }
-end
+    
+  end
   
 end
