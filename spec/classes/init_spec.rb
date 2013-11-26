@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'auditserver' do
   context 'set params and facts' do
-    let (:params} do
+    let (:params) do
       { :file_name  => '/usr/bin/auditserver.pl',
         :site       => 'cnsh',
       }
