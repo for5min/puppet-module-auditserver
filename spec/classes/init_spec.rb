@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe 'auditserver' do
     let (:params)
-      { :libpath_real => '/proj/cnshrepo/lib/linux' }
-    
+      {{ :libpath_real => '/proj/cnshrepo/lib/linux' }}
+
     
     it { should include_class('auditserver') }
     
