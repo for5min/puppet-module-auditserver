@@ -12,11 +12,14 @@ describe 'auditserver' do
         :memorytotal => '4 G',
         :processorcount => '4'
         }}
+    
+    it { should include_class('auditserver') }
+    
+    context 'with params setup' do
+        
     let (:params)
       {{ :libpath_real => '/proj/cnshrepo/lib/linux' }}
     
-
-    it { should include_class('auditserver') }
     
     it do 
       should contain_file('auditserver').with({
@@ -39,4 +42,5 @@ describe 'auditserver' do
         'minute'  => '0',
       })
      end
+  end
 end
