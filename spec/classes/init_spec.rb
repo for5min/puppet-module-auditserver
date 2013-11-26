@@ -2,24 +2,10 @@ require 'spec_helper'
 
 describe 'auditserver' do
   context 'set params and facts' do
-    let ( :params ) { { :libpath_real => '/proj/cnshrepo/lib/linux' } }
-    let ( :facts ) do
-      { :kernel => 'Linux',
-        :fqdn => 'test.example.com',
-        :architecture => 'x86_64',
-        :is_virtual => 'true',
-        :virtual    => 'xenu',
-        :osfamily   => 'Redhat',
-        :osversion  => '6.4',
-        :memorytotal => '4 G',
-        :processorcount => '4'
-        }
-    end
     
     
     it { should include_class('auditserver')}
         
-   end
     it {
       should contain_file('auditserver').with({
         :path    => '/usr/bin/auditserver.pl',
@@ -41,5 +27,6 @@ describe 'auditserver' do
         :minute   => '0',
       })
     }
+end
   
 end
