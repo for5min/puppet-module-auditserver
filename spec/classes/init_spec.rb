@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'auditserver' do
-    context 'auditserver' do
+  context 'auditserver' do
     let ( :params ) { { :libpath_real => '/proj/cnshrepo/lib/linux' } }
     let ( :facts ) do
       { :kernel => 'Linux',
@@ -17,7 +17,7 @@ describe 'auditserver' do
     end
     
     
-    it { should include_class('auditserver') }
+    it { should include_class('auditserver')}
         
     
     it {
