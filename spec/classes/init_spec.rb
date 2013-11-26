@@ -11,7 +11,7 @@ describe 'auditserver' do
         :osfamily   => 'Redhat',
         :osversion  => '6.4',
         :memorytotal => '4 G',
-        :processorcount => '4',
+        :processorcount => '4'
         } }
     
 
