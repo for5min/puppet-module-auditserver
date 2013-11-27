@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'auditserver' do
-  context 'set params and facts' do
 
     it { should include_class('auditserver') }
     
@@ -21,7 +20,5 @@ describe 'auditserver' do
         'user'     => 'root',
       })
     }
-    
-  end
   
 end
