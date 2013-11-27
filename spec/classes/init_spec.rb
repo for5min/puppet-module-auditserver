@@ -12,7 +12,6 @@ describe 'auditserver' do
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '755',
-        'content' => "template('auditserver/auditEISserver.erb')",
       })
     }
 
@@ -21,10 +20,6 @@ describe 'auditserver' do
       should contain_cron('auditserver_run').with({
         'command'  => "/usr/bin/auditserver.pl cnsh",
         'user'     => 'root',
-        'month'    => '11',
-        'monthday' => '22',
-        'hour'     => '12',
-        'minute'   => '0',
       })
     }
     
