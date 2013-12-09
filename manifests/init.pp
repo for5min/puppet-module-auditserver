@@ -28,12 +28,12 @@ class auditserver (
 
   case $site {
     cnsh : {
-            $default_url = 'http://ecnshwdp2001.rnd.ericsson.se:8099/service-dispatch/object'
-            $default_libpath = '/proj/cnshrepo/lib/linux'
+            $default_url = 'http://a.example.com:8099/service'
+            $default_libpath = '/foo'
   }
     seki : {
-            $default_url = 'http://esekiwdp365.rnd.ericsson.se:8099/service-dispatch/object'
-            $default_libpath = '/proj/BIIT360/cron/lib/linux'
+            $default_url = 'http://b.example.com::8099/service'
+            $default_libpath = '/bar'
   }
     default: { fail('the site is not in scope') }
   }
